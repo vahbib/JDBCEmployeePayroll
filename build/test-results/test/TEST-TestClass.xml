@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestClass" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-03T13:25:26" hostname="DESKTOP-9T3G1G1" time="1.212">
+  <properties/>
+  <testcase name="onUpdation_compareEmpPayrollObjectWithDB" classname="TestClass" time="1.212"/>
+  <system-out><![CDATA[Driver Loaded..
+Connecting to the Database... jdbc:mysql://localhost:3306/payroll_service?useSSL=false
+Connection was successful !!
+
+ID: 1
+Name: Rajeev
+Salary: 250000.0
+Date: 2018-09-28
+
+ID: 2
+Name: Rohan
+Salary: 150000.0
+Date: 2020-05-25
+
+ID: 3
+Name: Devanshi
+Salary: 100000.0
+Date: 2019-05-15
+
+ID: 4
+Name: Nisha
+Salary: 300000.0
+Date: 2017-05-31
+
+ID: 5
+Name: Terisa
+Salary: 400000.0
+Date: 2019-05-23
+200000.0
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
