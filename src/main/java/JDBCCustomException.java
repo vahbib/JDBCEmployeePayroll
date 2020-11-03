@@ -1,0 +1,2 @@
+public class JDBCCustomException {
+}
