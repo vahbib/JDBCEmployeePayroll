@@ -1,4 +1,5 @@
 import java.sql.Connection;
+import java.util.Date;
 import java.sql.SQLException;
 
 public class Main {
@@ -10,6 +11,9 @@ public class Main {
         employeeOperation.readData(con);
         employeeOperation.retrieveEmployeesByDate(con, "2018-10-10", "2020-01-01");
         employeeOperation.dataBaseFunctionOps(con, "F");
+
+        Date date = new Date(2020, 9, 16);
+        employeeOperation.insertDataToEmployeeDB(con, "Bibhav", 'M', 250000, date);
 
 
     }

@@ -18,17 +18,17 @@ public class EmployeeOperation {
             while (rs.next()){
                 int id = rs.getInt(1);
                 String name = rs.getString(2);
-                String Gender = rs.getString(3);
+                char gender = rs.getString(3).charAt(0);
                 double salary = rs.getDouble(4);
                 Date date = rs.getDate(5);
 
                 System.out.print("\nID: " + id);
                 System.out.print("\nName: " + name);
-                System.out.print("\nGender: "+ Gender);
+                System.out.print("\nGender: "+ gender);
                 System.out.print("\nSalary: " + salary);
                 System.out.println("\nDate: " + date);
 
-                Employee emp = new Employee(id,name,salary,date);
+                Employee emp = new Employee(id,name,gender,salary,date);
                 employee_list.add(emp);
             }
         }catch(Exception e){
@@ -74,5 +74,23 @@ public class EmployeeOperation {
         stmt.executeQuery();
 
         return employee_list;
+    }
+
+    public int insertDataToEmployeeDB(Connection con, String name, char gender, double salary, Date date) throws SQLException {
+        int result_query = -1;
+        DBConnection jdbc_con = new DBConnection();
+        con = jdbc_con.getConnection();
+        String query = String.format("Insert into employee_payroll (Name,Gender,Salary,StartDate) values " +
+                "('%s', '%s', '%s', '%s')", name, gender, salary, date);
+        Statement stmt = con.createStatement();
+        result_query = stmt.executeUpdate(query,stmt.RETURN_GENERATED_KEYS);
+        if(result_query == 1){
+            ResultSet rs = stmt.getGeneratedKeys();
+            while(rs.next()) {
+                int id = rs.getInt(1);
+                EmployeeOperation.employee_list.add(new Employee(id, name, gender, salary, date));
+            }
+        }
+        return result_query;
     }
 }
