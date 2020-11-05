@@ -4,14 +4,25 @@ import java.util.Date;
 public class Employee {
     private int id;
     private String name;
+
+    public char getGender() {
+        return gender;
+    }
+
+    public void setGender(char gender) {
+        this.gender = gender;
+    }
+
+    private char gender;
     private double salary;
     private Date date;
 
-    public Employee(int id, String name,  double salary, Date date) {
+    public Employee(int id, String name, char gender, double salary, Date date) {
         this.id = id;
         this.name = name;
         this.salary = salary;
         this.date = date;
+        this.gender = gender;
     }
 
     public int getId() { return id; }
