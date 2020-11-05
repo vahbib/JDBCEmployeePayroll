@@ -1,15 +1,36 @@
-
 import java.util.Date;
 
 public class Employee {
-    private int id;
-    private String name;
-    private double salary;
-    private Date date;
-
-    public Employee(int id, String name,  double salary, Date date) {
+    public Employee(int id, String name, char gender, double salary, Date date, String department) {
         this.id = id;
         this.name = name;
+        this.gender = gender;
+        this.salary = salary;
+        this.date = date;
+        this.department = department;
+    }
+
+    private int id;
+    private String name;
+    private char gender;
+    private double salary;
+    private Date date;
+    private String department;
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+
+
+    public Employee(int id, String name, char gender, double salary, Date date) {
+        this.id = id;
+        this.name = name;
+        this.gender = gender;
         this.salary = salary;
         this.date = date;
     }
@@ -29,4 +50,6 @@ public class Employee {
     public Date getDate() { return date; }
 
     public void setDate(Date date) { this.date = date; }
+    public char getGender() { return gender;}
+    public void setGender(char gender) { this.gender = gender; }
 }
